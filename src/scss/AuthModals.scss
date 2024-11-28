@@ -1,0 +1,24 @@
+@import 'variables';
+/* /src/scss/_variables.scss */
+
+.modal-content {
+    border-radius: 9px;
+    padding:  8px;
+
+    .modal-header {
+        border-bottom: none;
+    }
+
+    .modal-body {
+        form {
+            .form-control {
+                margin-bottom: 15px;
+                padding: 8px 10px;
+            }
+
+            .btn-primary {
+                color: $white;
+            }
+        }
+    }
+}

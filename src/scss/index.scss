@@ -1,0 +1,179 @@
+@import 'variables';
+/* /src/scss/_variables.scss */
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300..700&display=swap');
+
+body,
+html {
+    font-family: "Spline Sans", sans-serif;
+    margin: 0;
+    height: 100%;
+}
+
+.body-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper {
+    padding-left: 90px;
+    padding-right: 90px;
+    transition: 0.2s;
+}
+
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    flex: 1;
+}
+
+.toast-container {
+    margin-bottom: 5px;
+}
+
+@include media-breakpoint-down(lg) {
+    .wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .venue-section {
+        padding: 30px 20px;
+    }
+
+    .navbar {
+        &.fixed-top {
+            padding: 0px 20px;
+            background: $primary;
+
+            &.header-overlay {
+                padding: 0px 20px;
+            }
+        }
+
+        .navbar-brand {
+            .logo {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+        }
+
+        .navbar-nav {
+            &:nth-child(2) {
+                margin-bottom: 15px;
+            }
+
+            .nav-item {
+                background-color: $white;
+
+                .nav-link {
+                    color: $primary;
+                }
+            }
+
+            .list-venue {
+                background-color: $primary;
+                border-color: $white;
+
+                .nav-link {
+                    color: $white;
+                }
+
+                &:hover {
+                    filter: brightness(1.05);
+                }
+            }
+        }
+    }
+
+    .footer {
+        padding: 0px 20px;
+    }
+
+    .venue-page {
+        .venue-left-right {
+            height: 100%;
+
+            .venue-image {
+                height: auto;
+            }
+
+            .right-side {
+                min-width: auto;
+                max-width: 100%;
+            }
+        }
+    }
+
+    .venue-card {
+        .venue-details {
+            .price-view-btn {
+                .view-button {
+                    width: 100%;
+                }
+
+                .view-button:after {
+                    content: " Venue";
+                }
+            }
+        }
+    }
+
+    .profile-section {
+        .profile-data {
+            div {
+                text-align: center;
+            }
+        }
+
+        .profile-buttons {
+            width: 100%;
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+
+    .bookings-list {
+        .booking-card {
+            .booking-image {
+                width: 100%;
+                height: 150px
+            }
+        }
+    }
+
+    .venue-manager-page {
+        .create-v-btn {
+            width: 100%;
+        }
+        
+        .venue-manager-card {
+            .venue-image img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        .right {
+            .venue-actions {
+                width: 100%;
+            }
+        }
+    }
+
+    
+}
+
+@include media-breakpoint-down(sm) {
+    .hero-section {
+        padding-top: 60px;
+    }
+}

@@ -1,0 +1,45 @@
+@import 'variables';
+/* /src/scss/_variables.scss */
+
+.user-page {
+    padding: 20px;
+
+    .profile-section {
+        background-color: $light-grey;
+        border-radius: 9px;
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        h3 {
+            font-weight: 500;
+        }
+
+        p.email {
+            opacity: 0.5;
+        }
+
+        .sign-out-btn,
+        .edit-profile-btn {
+            border: none;
+            border-radius: 9px;
+            padding: 10px 20px;
+        }
+    }
+
+    .bookings-section {
+        h4 {
+            font-weight: 500;
+        }
+    }
+}
+
+#editProfileModal {
+    button {
+        color: $white;
+    }
+}

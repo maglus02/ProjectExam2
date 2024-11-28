@@ -1,0 +1,119 @@
+@import 'variables';
+/* /src/scss/_variables.scss */
+
+
+.hero-section {
+    background-image: url('../images/paradise-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 0px 90px;
+    padding-top: 80px;
+    color: #fff;
+    height: 50vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+    min-height: 400px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    >* {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.hero-center {
+    padding: 90px 0px;
+
+    .hero-title {
+        font-size: 2.5rem;
+        font-weight: 500;
+        margin-bottom: 30px;
+        color: $white;
+    }
+
+    .search-bar {
+        margin-top: 20px;
+        position: relative;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .input-group-text {
+            background-color: $white;
+
+            svg {
+                color: $primary;
+                font-size: 30px;
+            }
+        }
+
+        .form-floating {
+            position: relative;
+
+            input {
+                border-radius: 9px;
+                background-color: $white;
+                border: 1px solid $grey;
+                border-left: none;
+                width: 100%;
+                height: 50px;
+
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+
+            label {
+                color: $label;
+            }
+        }
+    }
+}
+
+.venue-section {
+    padding: 30px 90px;
+    background-color: $white;
+    transition: 0.2s;
+
+    .mb-xl-3, .mt-xl-2 {
+        transition: 0.2s;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .pagination {
+        button {
+            padding: 8px 16px;
+            margin: 0 5px;
+            font-size: 1rem;
+            border-radius: 9px;
+            transition: 0.3s;
+
+            &.active {
+                background-color: $primary;
+                color: $white;
+            }
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+
+}

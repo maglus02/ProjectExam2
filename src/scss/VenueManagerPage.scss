@@ -1,0 +1,67 @@
+@import 'variables';
+/* /src/scss/_variables.scss */
+
+.venue-manager-page {
+    padding-top: 20px;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .venue-manager-card {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        border-radius: 9px;
+        background-color: $light-grey;
+
+        .venue-image img {
+            width: 200px;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 9px;
+        }
+
+        .right {
+            .venue-details {
+                p {
+                    margin-bottom: 0.5rem;
+                }
+            }
+
+            .venue-actions {
+                min-width: 160px;
+
+                .btn {
+                    font-size: 0.9rem;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+.viewBookingsM {
+    .modal-body {
+        .list-group {
+            .list-group-item {
+                background-color: $light-grey;
+                border: none;
+                border-radius: 9px;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                    line-height: 1.4;
+
+                    small {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+
+}

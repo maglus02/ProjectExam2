@@ -1,0 +1,127 @@
+@import 'variables';
+/* /src/scss/_variables.scss */
+
+.venue-page {
+    padding: 20px;
+
+    h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .venue-left-right {
+
+        .venue-image {
+            width: 100%;
+            max-height: 686px;
+            border-radius: 9px;
+            object-fit: cover;
+            transition: 0.2s;
+        }
+
+        .right-side {
+            min-width: 380px;
+            max-width: 380px;
+            height: 100%;
+            flex-grow: 1;
+
+            .booking-card {
+                background-color: $secondary;
+                padding: 20px;
+                border-radius: 9px;
+                text-align: left;
+
+                .labels {
+                    font-size: 1rem;
+                    margin: 0;
+                }
+
+                .price {
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                }
+
+                .book-button {
+                    width: 100%;
+                    color: $white;
+                    border: none;
+                }
+
+                .form-group {
+                    width: 100%;
+                }
+            }
+
+            .calendar-availability {
+                background-color: $light-grey;
+                text-align: center;
+                border-radius: 9px;
+
+
+                p {
+                    font-size: 0.9rem;
+                    color: $label;
+                }
+
+                .react-calendar {
+                    width: 100% !important;
+                    background-color: transparent !important;
+                    border: none !important;
+                    box-shadow: none;
+                    padding: 0px;
+                }
+
+                .react-calendar__navigation {
+                    button {
+                        color: $black !important;
+                    }
+                }
+
+                .react-calendar__tile--active {
+                    background: $primary !important;
+                    color: $white !important;
+                }
+
+
+                .react-calendar__month-view__days__day--disabled {
+                    background-color: $grey !important;
+                }
+            }
+        }
+    }
+
+    .venue-info {
+        margin-top: 40px;
+
+        h2 {
+            font-size: 1.7rem;
+        }
+
+        .venue-amenities {
+            margin-top: 20px;
+
+            h4 {
+                font-size: 1.4rem;
+            }
+
+            .amenity-item {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border: 1px solid $light-grey;
+                border-radius: 9px;
+
+                .amenity-icon {
+                    font-size: 24px;
+                    color: $secondary;
+                    margin-right: 8px;
+                }
+
+                span {
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

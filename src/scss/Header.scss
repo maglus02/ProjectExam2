@@ -1,0 +1,102 @@
+@import 'variables';
+/* /src/scss/_variables.scss */
+
+.navbar {
+    &.fixed-top {
+        top: 0;
+        width: 100%;
+        padding: 0;
+        background: transparent;
+        position: relative;
+        padding: 0px 90px;
+
+        &.header-overlay {
+            padding: 0px 90px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            transition: 0.2s;
+        }
+    }
+
+    .container-fluid {
+        padding: 0;
+    }
+
+    .navbar-brand {
+        padding: 0px;
+
+        .logo {
+            background-color: $primary;
+            padding: 20px;
+            border-radius: 0px 0px 9px 9px;
+
+            h2 {
+                font-weight: medium;
+                font-size: 35px;
+                color: $white;
+                margin-bottom: 0 !important;
+            }
+        }
+
+    }
+
+    hr {
+        color: $white;
+        border-width: 2px;
+        opacity: 1;
+        border-radius: 9px;
+    }
+
+    .nav-item {
+        border-radius: 9px;
+        transition: 0.2s;
+
+        .nav-link {
+            color: $white;
+        }
+    }
+
+    .user-profile-btn {
+        min-width: 170px;
+    }
+
+    .list-venue {
+        background-color: $white;
+
+        &:hover {
+            .nav-link {
+                color: $white;
+            }
+        }
+
+        .nav-link {
+            color: $primary;
+        }
+    }
+
+    .venue-manager-panel-btn {
+        background-color: $white;
+        
+        .nav-link {
+            color: $primary;
+        }
+    }
+
+    .venue-manager-panel-btn:hover {
+        .nav-link {
+            color: $white;
+        }
+    }
+
+    .navbar-toggler {
+        border: none;
+        padding-left: 0px;
+        padding-right: 0px;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
