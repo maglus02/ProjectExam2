@@ -1,3 +1,22 @@
+/**
+ * Validates user input for name, email, and password fields.
+ * Updates the error state using the provided `setErrors` function.
+ * 
+ * @param {string} name - The name input to validate.
+ * @param {string} email - The email input to validate.
+ * @param {string} password - The password input to validate.
+ * @param {(errors: { [key: string]: string }) => void} setErrors - A callback function to set validation error messages.
+ * @returns {boolean} Returns `true` if all inputs are valid, otherwise `false`.
+ * 
+ * @example
+ * const [errors, setErrors] = useState({});
+ * const isValid = validateInput('John_Doe', 'john.doe@stud.noroff.no', 'password123', setErrors);
+ * 
+ * if (!isValid) {
+ *   console.log(errors); // Outputs validation error messages.
+ * }
+ */
+
 export const validateInput = (
     name: string,
     email: string,

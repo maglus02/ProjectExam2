@@ -29,11 +29,22 @@ interface UserProviderProps {
 
 const UserContext = createContext<UserContextProps | undefined>(undefined);
 
+/**
+ * UserProvider component that provides user-related data and actions to the application.
+ * Fetches and manages the user state, providing utility functions to refresh or update user data.
+ * 
+ * @param {UserProviderProps} props - The props for the UserProvider component.
+ * @param {ReactNode} props.children - The children components to be wrapped by the provider.
+ * @returns {JSX.Element} The UserContext provider with children.
+ */
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [updating, setUpdating] = useState<boolean>(false);
 
+  /**
+   * Fetches the user data from the API and updates the state.
+   */
   const fetchUser = async () => {
     const profile = load<{ name: string }>('profile');
     if (!profile?.name) {
@@ -59,6 +70,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     }
   };
 
+  /**
+   * Refreshes the user data by re-fetching it from the API.
+   */
   const refreshUser = async () => {
     setUpdating(true);
     try {
@@ -68,6 +82,11 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     }
   };
 
+  /**
+   * Updates the user state with new data.
+   * 
+   * @param {User} updatedUser - The updated user data to set in the state.
+   */
   const updateUser = (updatedUser: User) => {
     setUser(updatedUser);
   };
@@ -83,6 +102,12 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   );
 };
 
+/**
+ * Custom hook to access the UserContext.
+ * 
+ * @throws {Error} Throws an error if the hook is used outside of a UserProvider.
+ * @returns {UserContextProps} The context value containing user data and actions.
+ */
 export const useUserContext = () => {
   const context = useContext(UserContext);
   if (!context) {

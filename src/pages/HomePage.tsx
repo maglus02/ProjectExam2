@@ -37,10 +37,10 @@ const HomePage = (): JSX.Element => {
 
     return (
         <>
-            <div className="hero-section d-flex justify-content-top">
-                <div className="container-fluid text-center hero-center">
+            <div className="hero-section d-flex justify-content-start">
+                <div className="container-fluid text-center hero-center d-flex flex-column justify-content-center">
                     <h1 className="hero-title">Find Your Next Getaway</h1>
-                    <form className="search-bar" onSubmit={handleSearchSubmit}>
+                    <form className="search-bar w-100" onSubmit={handleSearchSubmit}>
                         <div className="input-group position-relative">
                             <span className="input-group-text">
                                 <HiSearch className="search-icon" />

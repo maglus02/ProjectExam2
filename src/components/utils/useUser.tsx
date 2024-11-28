@@ -15,6 +15,25 @@ interface User {
   venueManager?: boolean;
 }
 
+/**
+ * A custom hook for managing user data, including fetching the user's profile from the API.
+ * 
+ * @returns {{
+*   user: User | null;
+*   setUser: React.Dispatch<React.SetStateAction<User | null>>;
+*   loading: boolean;
+*   error: string | null;
+* }} The current user, a setter function for the user, the loading state, and any error encountered.
+* 
+* @example
+* const { user, setUser, loading, error } = useUser();
+* 
+* useEffect(() => {
+*   if (user) {
+*     console.log('User data loaded:', user);
+*   }
+* }, [user]);
+*/
 const useUser = () => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);

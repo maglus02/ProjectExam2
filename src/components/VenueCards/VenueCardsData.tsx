@@ -10,6 +10,16 @@ type VenueCardsProps = {
     searchQuery: string;
 };
 
+/**
+ * A component that fetches and displays a list of venues, with support for pagination and search.
+ * 
+ * @param {VenueCardsProps} props - Props for the `VenueCards` component.
+ * @param {string} props.searchQuery - The search query to filter venues.
+ * @returns {JSX.Element} The rendered venue cards or an appropriate message.
+ * 
+ * @example
+ * <VenueCards searchQuery="beach" />
+ */
 const VenueCards: React.FC<VenueCardsProps> = ({ searchQuery }) => {
     const [venues, setVenues] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
@@ -18,6 +28,9 @@ const VenueCards: React.FC<VenueCardsProps> = ({ searchQuery }) => {
     const [pageCount, setPageCount] = useState<number>(1);
 
     useEffect(() => {
+        /**
+         * Fetches venues from the API based on the search query and current page.
+         */
         const getVenues = async () => {
             try {
                 setLoading(true);
@@ -26,12 +39,12 @@ const VenueCards: React.FC<VenueCardsProps> = ({ searchQuery }) => {
                 if (searchQuery.trim()) {
                     response = await authFetch(API_BASE + API_VENUES + `/search?q=${encodeURIComponent(searchQuery)}&page=${currentPage}`);
                 } else {
-                    response = await authFetch(API_BASE + API_VENUES +`?page=${currentPage}&sort=created&sortOrder=asc`);
+                    response = await authFetch(API_BASE + API_VENUES + `?page=${currentPage}&sort=created&sortOrder=asc`);
                 }
 
                 if (!response.ok) {
                     const errorData = await response.json();
-                    throw new Error( `${errorData.statusCode || response.status}: ${errorData.errors?.[0]?.message || response.statusText}`);
+                    throw new Error(`${errorData.statusCode || response.status}: ${errorData.errors?.[0]?.message || response.statusText}`);
                 }
 
                 const responseData = await response.json();
@@ -53,12 +66,17 @@ const VenueCards: React.FC<VenueCardsProps> = ({ searchQuery }) => {
         getVenues();
     }, [currentPage, searchQuery]);
 
+    /**
+     * Handles the change of the current page in pagination.
+     * 
+     * @param {number} page - The new page number to fetch venues for.
+     */
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
     };
 
     if (loading) {
-        return < LoadingElement/>;
+        return < LoadingElement />;
     }
 
     if (error) {

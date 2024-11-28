@@ -7,12 +7,26 @@ interface ToastHandlerProps {
   clearMessage: () => void;
 }
 
+/**
+ * A reusable toast notification component using Bootstrap's Toast.
+ * Displays a toast with a message and type, automatically hides after a delay, 
+ * and calls a clearMessage function when hidden.
+ * 
+ * @param {ToastHandlerProps} props - The props for the ToastHandler component.
+ * @param {string | null} props.message - The message to display in the toast.
+ * @param {'error' | 'info' | 'success'} props.type - The type of toast to display.
+ * @param {() => void} props.clearMessage - A function to clear the toast message.
+ * @returns {JSX.Element | null} The rendered toast or null if no message is provided.
+ */
 const ToastHandler: React.FC<ToastHandlerProps> = ({ message, type, clearMessage }) => {
   const toastRef = useRef<HTMLDivElement | null>(null);
   const toastInstanceRef = useRef<Toast | null>(null);
 
   useEffect(() => {
     if (message && toastRef.current) {
+
+      const toastElement = toastRef.current;
+
       if (!toastInstanceRef.current) {
         toastInstanceRef.current = new Toast(toastRef.current, { autohide: true, delay: 5000 });
       }
@@ -23,11 +37,11 @@ const ToastHandler: React.FC<ToastHandlerProps> = ({ message, type, clearMessage
         clearMessage();
       };
 
-      toastRef.current.addEventListener('hidden.bs.toast', onHidden);
+      toastElement.addEventListener('hidden.bs.toast', onHidden);
 
       return () => {
-        if (toastRef.current) {
-          toastRef.current.removeEventListener('hidden.bs.toast', onHidden);
+        if (toastElement) {
+          toastElement.removeEventListener('hidden.bs.toast', onHidden);
         }
       };
     }

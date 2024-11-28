@@ -41,6 +41,12 @@ html {
     .hero-section {
         padding-left: 20px;
         padding-right: 20px;
+        padding-top: 0px;
+        height: 20vh;
+    }
+
+    .hero-center {
+        padding: 0px;
     }
 
     .venue-section {
@@ -54,6 +60,7 @@ html {
 
             &.header-overlay {
                 padding: 0px 20px;
+                position: relative;
             }
         }
 
@@ -170,10 +177,4 @@ html {
     }
 
     
-}
-
-@include media-breakpoint-down(sm) {
-    .hero-section {
-        padding-top: 60px;
-    }
 }

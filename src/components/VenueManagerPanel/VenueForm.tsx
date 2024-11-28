@@ -6,6 +6,23 @@ interface VenueFormProps {
   loading: boolean;
 }
 
+/**
+ * A reusable form component for creating or editing venue details.
+ * Includes fields for venue information, media, amenities, and location.
+ * 
+ * @param {VenueFormProps} props - Props for the `VenueForm` component.
+ * @param {any} [props.initialData] - Initial data to pre-fill the form fields.
+ * @param {(data: any) => Promise<void>} props.onSubmit - Function to handle form submission.
+ * @param {boolean} props.loading - Whether the form is currently loading or submitting.
+ * @returns {JSX.Element} The rendered venue form component.
+ * 
+ * @example
+ * <VenueForm
+ *   initialData={{ name: 'My Venue', price: 100 }}
+ *   onSubmit={handleSubmit}
+ *   loading={isSubmitting}
+ * />
+ */
 const VenueForm: React.FC<VenueFormProps> = ({ initialData = {}, onSubmit, loading }) => {
   const [name, setName] = useState(initialData.name || '');
   const [description, setDescription] = useState(initialData.description || '');
@@ -28,6 +45,11 @@ const VenueForm: React.FC<VenueFormProps> = ({ initialData = {}, onSubmit, loadi
     continent: initialData.location?.continent || '',
   });
 
+  /**
+   * Handles form submission, constructing the data object and calling the onSubmit callback.
+   * 
+   * @param {React.FormEvent} e - The form submission event.
+   */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const data = {

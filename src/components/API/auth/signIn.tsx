@@ -2,6 +2,15 @@ import { authFetch } from '../fetch';
 import { API_AUTH, API_BASE, API_LOGIN } from '../constants';
 import { save } from '../../Storage/save';
 
+/**
+ * Handles user sign-in by sending credentials to the authentication API.
+ * 
+ * @async
+ * @param {string} email - The user's email address.
+ * @param {string} password - The user's password.
+ * @throws {Error} Throws an error if the login fails.
+ * @returns {Promise<void>} Resolves when the login is successful and data is saved.
+ */
 export const signIn = async (email: string, password: string) => {
   const response = await authFetch(API_BASE + API_AUTH + API_LOGIN, {
     method: 'POST',
