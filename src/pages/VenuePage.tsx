@@ -17,7 +17,12 @@ import ToastHandler from '../components/utils/ToastHandler';
 import { useUserContext } from '../components/Context/UserContext';
 import { handleError } from '../components/utils/errorHandler';
 
-
+/**
+ * VenuePage component for displaying detailed information about a specific venue.
+ * Allows users to view details, check availability, and book the venue.
+ * 
+ * @returns {JSX.Element} The rendered VenuePage component.
+ */
 const VenuePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { venue, bookedDates } = VenueData(id);
@@ -32,11 +37,17 @@ const VenuePage: React.FC = () => {
   useEffect(() => {
     document.title = venue ? `${venue.name} | Holidaze` : 'Venue Details | Holidaze';
   }, [venue]);
-  
+
   if (!venue) {
     return <LoadingElement />;
   }
 
+  /**
+   * Validates if the selected date range is available.
+   * 
+   * @param {[Date | null, Date | null]} dates - The selected date range.
+   * @returns {boolean} True if the range is valid, otherwise false.
+   */
   const validateSelectedRange = (dates: [Date | null, Date | null]): boolean => {
     const [from, to] = dates;
 
@@ -55,6 +66,12 @@ const VenuePage: React.FC = () => {
     return true;
   };
 
+  /**
+   * Handles booking submission.
+   * 
+   * @param {React.FormEvent} event - The form submission event.
+   * @param {number} guests - The number of guests for the booking.
+   */
   const handleBooking = async (event: React.FormEvent, guests: number) => {
     event.preventDefault();
     setToastMessage(null);

@@ -10,6 +10,12 @@ import ModalContainer from '../components/VenueManagerPanel/ModalContainer';
 import { FaCirclePlus } from 'react-icons/fa6';
 import { handleError } from '../components/utils/errorHandler';
 
+/**
+ * VenueManagerPage component for managing user-created venues.
+ * Allows the user to create, update, view, or delete venues.
+ * 
+ * @returns {JSX.Element} The rendered VenueManagerPage component.
+ */
 const VenueManagerPage: React.FC = () => {
   const { user, loading: userLoading } = useUserContext();
   const [venues, setVenues] = useState<any[]>([]);
@@ -27,6 +33,9 @@ const VenueManagerPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    /**
+    * Fetches venues created by the logged-in user.
+    */
     const fetchUserVenues = async () => {
       if (!user?.name) {
         setError('User not logged in.');
@@ -56,10 +65,19 @@ const VenueManagerPage: React.FC = () => {
     }
   }, [user, userLoading]);
 
+  /**
+  * Handles venue deletion by updating the state.
+  * 
+  * @param {string} id - The ID of the venue to delete.
+  * @param {string} name - The name of the venue to delete.
+  */
   const handleDeleteClick = (id: string, name: string) => {
     setSelectedVenue({ id, name });
   };
 
+  /**
+  * Updates the venues state after a successful deletion.
+  */
   const handleDeleteSuccess = () => {
     if (selectedVenue) {
       setVenues((prevVenues) => prevVenues.filter((v) => v.id !== selectedVenue.id));
@@ -67,14 +85,31 @@ const VenueManagerPage: React.FC = () => {
     }
   };
 
+  /**
+   * Adds a newly created venue to the state.
+   * 
+   * @param {any} newVenue - The new venue object to add.
+   */
   const handleCreateSuccess = (newVenue: any) => {
     setVenues((prevVenues) => [newVenue, ...prevVenues]);
   };
 
+  /**
+  * Navigates to the venue details page.
+  * 
+  * @param {string} id - The ID of the venue.
+  */
   const handleViewClick = (id: string) => {
     navigate(`/venue/${id}`);
   };
 
+  /**
+   * Prepares bookings for display by setting the selected venue.
+   * 
+   * @param {string} id - The ID of the venue.
+   * @param {string} name - The name of the venue.
+   * @param {any[]} bookings - The bookings for the venue.
+   */
   const handleViewBookingsClick = (id: string, name: string, bookings: any) => {
     setSelectedVenue({ id, name, bookings });
   };

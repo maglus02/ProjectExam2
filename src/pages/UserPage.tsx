@@ -10,6 +10,11 @@ import { API_BASE, API_PROFILES } from '../components/API/constants';
 import { useUserContext } from '../components/Context/UserContext';
 import { handleError } from '../components/utils/errorHandler';
 
+/**
+ * UserPage component for displaying user profile and bookings.
+ * 
+ * @returns {JSX.Element} The rendered UserPage component.
+ */
 const UserPage: React.FC = () => {
   const { user } = useUserContext();
   const [bookings, setBookings] = useState<any[]>([]);
@@ -21,6 +26,9 @@ const UserPage: React.FC = () => {
   }, [user]);
 
   useEffect(() => {
+    /**
+     * Fetches user bookings from the API.
+     */
     const fetchUserBookings = async () => {
       if (user?.name) {
         try {
@@ -40,6 +48,9 @@ const UserPage: React.FC = () => {
     fetchUserBookings();
   }, [user]);
 
+  /**
+   * Handles user sign-out and redirects to the login page.
+   */
   const handleSignOutClick = () => {
     handleSignOut(navigate);
   };

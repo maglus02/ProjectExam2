@@ -3,15 +3,30 @@ import VenueCards from '../components/VenueCards/VenueCardsData';
 import '../scss/HomePage.scss';
 import { HiSearch } from "react-icons/hi";
 
-const HomePage = () => {
+/**
+ * HomePage component for searching and displaying venue cards.
+ * 
+ * @returns {JSX.Element} The rendered HomePage component.
+ */
+const HomePage = (): JSX.Element => {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [submittedQuery, setSubmittedQuery] = useState<string>('');
 
+    /**
+     * Handles the search form submission.
+     * 
+     * @param {React.FormEvent<HTMLFormElement>} event - The form submission event.
+     */
     const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setSubmittedQuery(searchQuery);
     };
 
+    /**
+     * Updates the search query state as the user types.
+     * 
+     * @param {React.ChangeEvent<HTMLInputElement>} event - The input change event.
+     */
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
     };
