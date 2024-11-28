@@ -1,5 +1,7 @@
 # Holidaze
 
+![Home page of Holidaze](https://i.imgur.com/vkgMIBD.jpeg)
+
 **Holidaze** is an accommodation booking platform built with React and TypeScript. It allows users to explore venues, manage bookings, and interact with a streamlined user interface.
 
 ## Features
