@@ -13,7 +13,7 @@ const UserNav: React.FC = () => {
         <>
           {user.venueManager && (
             <li className="nav-item px-2 venue-manager-panel-btn btn btn-outline-primary d-flex align-items-center">
-              <Link to="/venue-manager" className="nav-link d-flex align-items-center gap-2">
+              <Link to="/venue-manager" className="nav-link d-flex align-items-center gap-2 w-100">
               <LuLayoutPanelTop size={24} />
                 Venue Manager Panel
               </Link>
