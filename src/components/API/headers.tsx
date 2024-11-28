@@ -1,5 +1,4 @@
 import { load } from "../Storage/load";
-import { API_KEY } from "./constants";
 
 /**
  * Generates HTTP headers for API requests, including optional authentication and content headers.
@@ -16,8 +15,8 @@ export function headers(hasBody: boolean = false): Headers {
         headers.append("Authorization", `Bearer ${token}`);
     }
 
-    if (API_KEY) {
-        headers.append("X-Noroff-API-Key", API_KEY);
+    if (process.env.REACT_APP_API_KEY) {
+        headers.append("X-Noroff-API-Key", process.env.REACT_APP_API_KEY);
     }
 
     if (hasBody) {
