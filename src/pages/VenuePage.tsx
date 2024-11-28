@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../scss/VenuePage.scss';
 import VenueHeader from '../components/VenuePage/VenueHeader';
@@ -29,6 +29,10 @@ const VenuePage: React.FC = () => {
   const [calendarError, setCalendarError] = useState<string | null>(null);
   const { user } = useUserContext();
 
+  useEffect(() => {
+    document.title = venue ? `${venue.name} | Holidaze` : 'Venue Details | Holidaze';
+  }, [venue]);
+  
   if (!venue) {
     return <LoadingElement />;
   }

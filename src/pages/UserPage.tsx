@@ -17,6 +17,10 @@ const UserPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = user ? `${user.name} | Holidaze` : 'User Page | Holidaze';
+  }, [user]);
+
+  useEffect(() => {
     const fetchUserBookings = async () => {
       if (user?.name) {
         try {

@@ -24,6 +24,10 @@ const VenueManagerPage: React.FC = () => {
     bookings?: any[];
   } | null>(null);
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    document.title = 'Venue Manager Panel | Holidaze';
+  }, []);
 
   useEffect(() => {
     const fetchUserVenues = async () => {

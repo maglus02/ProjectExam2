@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import VenueCards from '../components/VenueCards/VenueCardsData';
 import '../scss/HomePage.scss';
 import { HiSearch } from "react-icons/hi";
@@ -15,6 +15,10 @@ const HomePage = () => {
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
     };
+
+    useEffect(() => {
+        document.title = 'Holidaze | Find Your Next Getaway';
+    }, []);
 
     return (
         <>
