@@ -12,12 +12,17 @@
 - **Responsive Design**: Optimized for desktop and mobile devices.
 - **Pagination & Search**: Browse venues with paginated results and dynamic search.
 
+## Demo
+Hosted demo: https://playful-treacle-6fb865.netlify.app/
+
 ## Technologies Used
 
 - **Frontend**: [React](https://reactjs.org/), TypeScript
 - **Styling**: SCSS, [Bootstrap](https://getbootstrap.com)
 
-## Installation
+## Getting Started
+
+### Installation
 
 1. Clone the repository:
    ```bash
@@ -31,10 +36,13 @@
    ```bash
    npm install
    ```
-4. Start the development server:
-   ```bash
-   npm start
-   ```
+
+### Running
+
+To run the app, run the following command:
+```bash
+npm start
+```
 
 ## Environment Variables
 
