@@ -14,8 +14,8 @@
 
 ## Technologies Used
 
-- **Frontend**: React, TypeScript
-- **Styling**: SCSS, Bootstrap
+- **Frontend**: [React](https://reactjs.org/), TypeScript
+- **Styling**: SCSS, [Bootstrap](https://getbootstrap.com)
 
 ## Installation
 
@@ -41,3 +41,6 @@
 Ensure the following environment variables are configured in `.env`:
 - `REACT_APP_API_KEY`: Your API Key.
 
+## Contact
+
+[Email](mailto:maglus52498@stud.noroff.no)
