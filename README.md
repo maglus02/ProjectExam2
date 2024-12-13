@@ -43,4 +43,5 @@ Ensure the following environment variables are configured in `.env`:
 
 ## Contact
 
-[Email](mailto:maglus52498@stud.noroff.no)
+Get in touch with me: 
+- [Email](mailto:maglus52498@stud.noroff.no)
